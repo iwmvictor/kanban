@@ -4,37 +4,10 @@
   background: #fafafa;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-
-.kanban-board {
-  display: flex;
-  gap: 16px;
-}
-
-.kanban-column {
-  flex: 1;
-  padding: 16px;
-  background: #f4f5f7;
-  border-radius: 8px;
-}
-
-.column-cards {
-  min-height: 100px;
-  background: white;
-  border: 1px dashed #d1d1d1;
-  border-radius: 4px;
-  padding: 8px;
-}
-
-.kanban-card {
-  padding: 16px;
-  margin-bottom: 8px;
-  background: #ffffff;
-  border: 1px solid #d1d1d1;
-  border-radius: 4px;
-  cursor: grab;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
 }
 
 .kanban-card:hover {
-  background: #f0f0f0;
+  background-color: #f0f0f0;
 }

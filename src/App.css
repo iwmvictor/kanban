@@ -1,5 +1,32 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  width: 100%;
+  display: block;
+  padding: 2rem;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  background: #fff;
+}
+
+.wid {
+  width: 95%;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 8rem;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+  background: #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #000;
 }

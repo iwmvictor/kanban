@@ -5,6 +5,7 @@
   justify-content: center;
   height: 100vh;
 }
+
 .spinner {
   width: 50px;
   height: 50px;
@@ -13,6 +14,7 @@
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
+
 @keyframes spin {
   100% {
     transform: rotate(360deg);

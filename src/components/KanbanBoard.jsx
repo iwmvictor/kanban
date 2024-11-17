@@ -1,9 +1,8 @@
+import "./../styles/KanbanBoard.css";
 import React, { useEffect, useState } from 'react';
 import Column from './Column';
 import Loader from './Loader';
-import { DragDropContext } from 'react-beautiful-dnd';
-
-import './../styles/KanbanBoard.css'
+import "./../styles/KanbanBoard.css";
 
 const KanbanBoard = () => {
     const [data, setData] = useState([]);
@@ -24,59 +23,24 @@ const KanbanBoard = () => {
     }
 
     const columns = [
-        { id: '1', title: 'To Do', filter: 'Created' },
-        { id: '2', title: 'In Progress', filter: 'In Progress' },
-        { id: '3', title: 'Completed', filter: 'Completed' },
-        { id: '4', title: 'Cancelled', filter: 'Cancelled' }
+        { id: 1, title: 'To Do', filter: 'Created' },
+        { id: 2, title: 'In Progress', filter: 'In Progress' },
+        { id: 3, title: 'Completed', filter: 'Completed' },
+        { id: 4, title: 'Cancelled', filter: 'Cancelled' }
     ];
 
-    const groupedData = (filter) =>
-        data.filter((status) => status.systemStatus.label === filter);
-
-    const handleDragEnd = (result) => {
-        if (!result.destination) return;
-
-        const { source, destination } = result;
-
-        const sourceColumn = columns.find(
-            (column) => column.id === source.droppableId
-        );
-        const destinationColumn = columns.find(
-            (column) => column.id === destination.droppableId
-        );
-
-        const sourceCards = groupedData(sourceColumn.filter);
-        const destinationCards = groupedData(destinationColumn.filter);
-
-        const [removedCard] = sourceCards.splice(source.index, 1);
-        destinationCards.splice(destination.index, 0, removedCard);
-
-        setData((prevData) =>
-            prevData.map((item) => {
-                if (item === removedCard) {
-                    return {
-                        ...item,
-                        systemStatus: { ...item.systemStatus, label: destinationColumn.filter }
-                    };
-                }
-                return item;
-            })
-        );
-    };
+    const groupedData = (filter) => data.filter((status) => status.systemStatus.label === filter);
 
     return (
-        <DragDropContext onDragEnd={handleDragEnd}>
-            <div className="kanban-board">
-                {columns.map((column) => (
-                    <Column
-                        key={column.id}
-                        id={column.id}
-                        title={column.title}
-                        cards={groupedData(column.filter)}
-                    />
-                ))}
-            </div>
-        </DragDropContext>
+        <div className="kanban-board">
+            {columns.map((column) => (
+                <Column
+                    key={column.id}
+                    title={column.title}
+                    cards={groupedData(column.filter)}
+                />
+            ))}
+        </div>
     );
 };
 
